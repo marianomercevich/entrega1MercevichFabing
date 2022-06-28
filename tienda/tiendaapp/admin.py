@@ -1,22 +1,19 @@
 from django.contrib import admin
 from .models import *
 
-class cascoAdmin(admin.ModelAdmin):
+class CascoAdmin(admin.ModelAdmin):
     list_display = ('marca', 'tipo', 'talle', 'precio')
-class camperaAdmin(admin.ModelAdmin):
+    search_fields = ('marca', 'tipo', 'talle', 'precio')
+class CamperaAdmin(admin.ModelAdmin):
     list_display = ('marca', 'tipo', 'talle', 'precio')
+    search_fields = ('marca', 'tipo', 'talle', 'precio')
+class GuanteAdmin(admin.ModelAdmin):
+    list_display = ('marca', 'tipo', 'talle', 'precio')
+    search_fields = ('marca', 'tipo', 'talle', 'precio')
 
-class bolsoAdmin(admin.ModelAdmin):
-    list_display = ('marca', 'tipo', 'talle', 'precio')
 
-class guanteAdmin(admin.ModelAdmin):
-    list_display = ('marca', 'tipo', 'talle', 'precio')
 
-class pantalonAdmin(admin.ModelAdmin):
-    list_display = ('marca', 'tipo', 'talle', 'precio')
+admin.site.register (casco, CascoAdmin)
+admin.site.register (campera, CamperaAdmin)
+admin.site.register (guante, GuanteAdmin)
 
-admin.site.register (casco, cascoAdmin)
-admin.site.register (campera, cascoAdmin)
-admin.site.register (bolso, bolsoAdmin)
-admin.site.register (guante, guanteAdmin)
-admin.site.register (pantalon, pantalonAdmin)

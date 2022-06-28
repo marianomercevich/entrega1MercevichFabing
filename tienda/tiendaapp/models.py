@@ -14,7 +14,6 @@ class casco(models.Model):
     )
     talle = models.PositiveSmallIntegerField("Talle", choices=TALLES)
     precio = models.FloatField ("Precio $")
-
 class campera(models.Model):
 
     marca = models.CharField("Marca", max_length=30)
@@ -26,18 +25,6 @@ class campera(models.Model):
     (4, "L" ),
     (5, "XL"),
     (6, "XXL"),
-    )
-    talle = models.PositiveSmallIntegerField("Talle", choices=TALLES)
-    precio = models.FloatField ("Precio $")
-class bolso(models.Model):
-
-    marca = models.CharField("Marca", max_length=30)
-    tipo = models.CharField("Tipo", max_length=30)
-    TALLES= (
-    (1, "15 L"),
-    (2, "20 L"),
-    (3, "30 L"),
-    (4, "45 L" ),
     )
     talle = models.PositiveSmallIntegerField("Talle", choices=TALLES)
     precio = models.FloatField ("Precio $")
@@ -57,29 +44,6 @@ class guante(models.Model):
     (4, "L" ),
     (5, "XL"),
     (6, "XXL"),
-    )
-    talle = models.PositiveSmallIntegerField("Talle", choices=TALLES)
-    precio = models.FloatField ("Precio $")
-class pantalon(models.Model):
-
-    marca = models.CharField("Marca", max_length=30)
-    TIPO= (
-    (1, "invierno"),
-    (2, "verano"),
-    (3, "4 estaciones"),
-    )
-    tipo = models.PositiveSmallIntegerField("Tipo", choices=TIPO)
-    TALLES= (
-    (1, "38"),
-    (2, "40"),
-    (3, "42"),
-    (4, "44"),
-    (5, "46"),
-    (6, "48"),
-    (7, "50"),
-    (8, "52"),
-    (9, "54"),
-    (10, "56"),
     )
     talle = models.PositiveSmallIntegerField("Talle", choices=TALLES)
     precio = models.FloatField ("Precio $")
