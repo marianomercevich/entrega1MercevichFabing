@@ -6,6 +6,12 @@ urlpatterns = [
 
     path('login', login_request, name = 'login'), 
     path('register', register_request, name="register"),
+    path('logout', logout_request, name="logout"),
+
+    path ('nosotros/', nosotros, name = 'nosotros'),  
+    path ('contacto/', contacto, name = 'contacto'),  
+    path ('eventos/', eventos, name = 'eventos'),
+
     path ('tienda/', tienda, name = 'tienda'),
 
     path('cascos/', cascos, name = 'cascos'),
@@ -13,12 +19,10 @@ urlpatterns = [
     path('eliminar_casco/<casco_id>/', eliminar_casco, name="eliminar_casco"),
     path('editar_casco/<casco_id>/', editar_casco, name="editar_casco"),
 
-
     path('camperas/', camperas, name = 'camperas'),
     path('crear_campera/', crear_campera, name="crear_campera"),
     path('eliminar_campera/<campera_id>/', eliminar_campera, name="eliminar_campera"),
     path('editar_campera/<campera_id>/', editar_campera, name="editar_campera"),
-
 
     path('guantes/', guantes, name = 'guantes'),
     path('crear_guante/', crear_guante, name="crear_guante"),
