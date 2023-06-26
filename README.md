@@ -1,4 +1,4 @@
-# entrega1MercevichFabing
+
 PROYECTO final PYTHON CODER HOUSE
 
 proyecto de tienda de articulos con implementacion de python requerimientos: pyton django pillow
