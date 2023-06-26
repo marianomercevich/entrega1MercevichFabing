@@ -16,7 +16,9 @@ Guantes
                     {% csrf_token %}
                     <input class="flex-grow-0 form-control mr-sm-2" type="search" name="search" placeholder="Buscar por marca/tipo/talle/precio" aria-label="Search">
                     <button class="btn btn-outline-success text-nowrap ms-3 my-2 my-sm-0" type="submit"> <i class="bi bi-search"></i> Buscar</button>
-                    <a class="btn btn-outline-success text-nowrap ms-3 my-2 my-sm-0" href="{% url 'crear_guante'%}"> <i class="bi bi-plus-lg"></i> agregar guante</a>
+                    {% if user.is_staff %}
+                        <a class="btn btn-outline-success text-nowrap ms-3 my-2 my-sm-0" href="{% url 'crear_guante'%}"> <i class="bi bi-plus-lg"></i> agregar guante</a>
+                    {% endif %}
                 </form>
             </div>
         </div>
@@ -25,7 +27,7 @@ Guantes
             {% if search %}
                 para "{{busqueda}}":
             {% else %}
-                totales:
+            en Stock:
             {% endif %}
         </h4>
         <br>
@@ -39,7 +41,9 @@ Guantes
                             <th scope="col">tipo</th>
                             <th scope="col">talle</th>
                             <th scope="col">precio</th>
-                            <th scope="col">Acciones</th>
+                            {% if user.is_staff %}
+                                <th scope="col">Acciones</th>
+                            {% endif %}
                         </tr>
                     </thead>
                     <tbody>
@@ -52,8 +56,11 @@ Guantes
                                 <td>{{guante.talle}}</td>
                                 <td>{{guante.precio}}</td>
                                 <td>
-                                    <a href="{% url 'editar_guante' guante.id %}" class="text-primary badge badge-primary text-decoration-none"> <i class="bi bi-pencil-square"></i> Editar</a>
-                                    <a href="{% url 'eliminar_guante' guante.id %}" class="text-danger badge badge-danger text-decoration-none"> <i class="bi bi-x-square"></i> Eliminar</a>
+                                    {% if user.is_staff %}
+                                        <a href="{% url 'editar_guante' guante.id %}" class="text-primary badge badge-primary text-decoration-none"> <i class="bi bi-pencil-square"></i> Editar</a>
+                                        <a href="{% url 'eliminar_guante' guante.id %}" class="text-danger badge badge-danger text-decoration-none"> <i class="bi bi-x-square"></i> Eliminar</a>
+                                    {% endif %}
+                                    <a href="{% url 'ver_producto' %}" class="text-danger badge badge-danger text-decoration-none"> <i class="bi bi-cart4"></i> comprar</a>
                                 </td>
                             </tr>
                         {% endfor %}

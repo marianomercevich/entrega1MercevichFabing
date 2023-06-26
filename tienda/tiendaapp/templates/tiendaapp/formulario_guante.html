@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block contenidoPagina %}
+{% if user.is_staff %}
 <section class="bg-light py-5">
     <div class="container px-5">
         <h2>Formulario Guantes:</h2>
@@ -29,4 +30,5 @@
         </div>
     </div>
 </section>
+{% endif %}
 {% endblock %}
